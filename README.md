@@ -20,6 +20,6 @@ callback 函数是同步执行的
 </pre>
 <br>
 <h2>HTML</h2>
-<p>HTML结构如 <a href="##">demo.html</a>所示</p>
+<p>HTML结构如 <a href="https://github.com/shixianqin/jquery.carousel.js/blob/master/demo.html">demo.html</a>所示</p>
 <h2>CSS</h2>
 <p>自定义CSS</p>
