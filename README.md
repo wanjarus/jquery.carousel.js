@@ -7,3 +7,4 @@
 <li>HTML结构简单</li>
 <li>自定义的CSS</li>
 </ul>
+<p>详细的使用方法见 <a href="https://github.com/shixianqin/jquery.carousel.js/blob/master/demo.html">demo.html</a></p>
