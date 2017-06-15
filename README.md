@@ -15,8 +15,8 @@ options.indicator.blur    //非当前状态的值
 </pre>
 <h2>[callback]</h2>
 <pre>
-callback 回调函数包含两个索引参数，第一个是当前的索引值，第二个是上一个当前的索引值<br>
-callback 函数是同步执行的<br>
+callback 回调函数包含两个索引参数，第一个是当前的索引值，第二个是上一个当前的索引值
+callback 函数是同步执行的
 </pre>
 <br>
 <h2>HTML</h2>
