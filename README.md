@@ -1,8 +1,8 @@
 # Usage method 
 
-<pre>$(select).carousel([options],[callback]);		//初始化</pre>
+<pre style="background:transparent;">$(select).carousel([options],[callback]);		//初始化</pre>
 <h4>[options]</h4>
-<pre>
+<pre style="background:transparent;">
 options.type              //有三种类型，（x、y、o），默认x
 options.interval          //间隔时间，默认3500ms
 options.speed             //过度的速度，默认500ms
@@ -14,7 +14,7 @@ options.indicator.focus   //当前状态的值
 options.indicator.blur    //非当前状态的值
 </pre>
 <h4>[callback]</h4>
-<pre>
+<pre style="background:transparent;">
 callback 回调函数包含两个索引参数，第一个是当前的索引值，第二个是上一个当前的索引值
 callback 函数是同步执行的
 </pre>
