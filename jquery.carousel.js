@@ -1,4 +1,4 @@
-/* jquery.carousel.js  2017-6-15 */
+/* jquery.carousel.js   2017-6-15  */
 
 ;(function($){
 	$.fn.extend({
