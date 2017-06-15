@@ -1,4 +1,24 @@
-# jquery.carousel.js
+<h2>HTML</h2>
+<pre>
+    <div class="carousel">
+			<ul class="<code>carousel-box</code>">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+			<ol class="<code>carousel-indicators</code>">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+			<span class="<code>prev</code>"></span>
+			<span class="<code>next</code>"></span>
+		</div>
+</pre>
   $(select).carousel([options],[callback]);    //初始化.
 <h2>#options</h2>
   <ul>
