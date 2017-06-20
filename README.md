@@ -24,8 +24,9 @@
 下一张按钮的<span class="pl-e">class</span>必须为<strong class="pl-k">.next</strong>
 </pre>
 <h4>JavaScript</h4>
-```javascript
+
 <pre>
+```javascript
 <span class="pl-e">$</span>(".carousel").<span class="pl-e">carousel</span>({
     interval : 5000,         //设置间隔时间，默认为3500ms
     speed : 500,             //设置过渡时间，默认500ms
