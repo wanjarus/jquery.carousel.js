@@ -2,6 +2,7 @@
 
 <h4>HTML</h4>
 <pre>
+```html
 &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>="carousel"&gt;
     &lt;<span class="pl-ent">ul</span> <span class="pl-e">class</span>="<strong class="pl-k">carousel-box</strong>"&gt;
         &lt;<span>li</span>&gt;&lt;/<span>li</span>&gt;
@@ -14,6 +15,7 @@
     &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>="<strong class="pl-k">prev</strong>"&gt;&lt;/<span>span</span>&gt;
     &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>="<strong class="pl-k">next</strong>"&gt;&lt;/<span>span</span>&gt;
 &lt;/<span>div</span>&gt;
+```
 </pre>
 <h4>CSS</h4>
 <pre>
