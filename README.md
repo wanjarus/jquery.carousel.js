@@ -1,5 +1,5 @@
 usage
-
+<div class="highlight highlight-text-html-basic">
 <h4>HTML</h4>
 <pre>
 &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>="carousel"&gt;
@@ -39,3 +39,4 @@ usage
     //do something...        //第一个参数为当前索引值，第二个参数为是前一个索引值
 });
 </pre>
+</div>
