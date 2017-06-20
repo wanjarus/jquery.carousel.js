@@ -21,10 +21,7 @@
 				autoPlay = obj.autoPlay === false ? false : true,
 				indicator = obj.indicator || {};
 				indicator.event = indicator.event || "click";
-				indicator.attr = indicator.attr || "opacity";
-				indicator.focus = indicator.focus || 1;
-				indicator.blur = indicator.blur || 0.3;
-				obj.timer = null;
+				indicator.activeClass = indicator.activeClass || "active";
 
 			if(type == "y"){
 				attr = "top";
@@ -44,7 +41,7 @@
 
 			items.css(attr,-hide).first().css(attr,show);
 			items.last().css(attr,hide);
-			inds.css(indicator.attr,indicator.blur).first().css(indicator.attr,indicator.focus);
+			inds.first().addClass(indicator.activeClass);
 			if(fn)(fn(0,len-1));
 			function run(d,dir,c,o){
 				refresh();
@@ -68,7 +65,8 @@
 				items.eq(cur).animate(tempObj,speed);
 				tempObj[attr] = -d;
 				items.eq(old).animate(tempObj,speed);
-				inds.css(indicator.attr,indicator.blur).eq(cur).css(indicator.attr,indicator.focus);
+				inds.eq(old).removeClass(indicator.activeClass);
+				inds.eq(cur).addClass(indicator.activeClass);
 				if(fn){fn(cur,old)};
 			};
 
