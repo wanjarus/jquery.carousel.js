@@ -1,8 +1,6 @@
 # usage
-
 <h4>HTML</h4>
 <pre>
-```html
 &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>="carousel"&gt;
     &lt;<span class="pl-ent">ul</span> <span class="pl-e">class</span>="<strong class="pl-k">carousel-box</strong>"&gt;
         &lt;<span>li</span>&gt;&lt;/<span>li</span>&gt;
@@ -15,7 +13,6 @@
     &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>="<strong class="pl-k">prev</strong>"&gt;&lt;/<span>span</span>&gt;
     &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>="<strong class="pl-k">next</strong>"&gt;&lt;/<span>span</span>&gt;
 &lt;/<span>div</span>&gt;
-```
 </pre>
 <h4>CSS</h4>
 <pre>
@@ -27,6 +24,7 @@
 下一张按钮的<span class="pl-e">class</span>必须为<strong class="pl-k">.next</strong>
 </pre>
 <h4>JavaScript</h4>
+```javascript
 <pre>
 <span class="pl-e">$</span>(".carousel").<span class="pl-e">carousel</span>({
     interval : 5000,         //设置间隔时间，默认为3500ms
@@ -40,5 +38,6 @@
 },<span class="pl-e">function</span>(curIndex,oldIndex){
     //do something...        //第一个参数为当前索引值，第二个参数为是前一个索引值
 });
+```
 </pre>
 
