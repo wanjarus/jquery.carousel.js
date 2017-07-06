@@ -20,12 +20,12 @@ $(".carousel").carousel({
     easing : "swing",                       // 可选，缓动函数，默认 "swing"
     mouseoverStop : false,                  // 可选，鼠标悬浮时是否暂停，默认 false
     animate : true,                         // 可选，是否有动画效果，默认 true
-    indicatorEvent : "click",				// 可选，指示灯切换事件，默认 "click"
-    indicatorActive : "active",				// 可选，指示灯当前状态的class类，默认 "active"
-	timer : setIntervalID	                // 自动，清除可以停止播放
+    indicatorEvent : "click",		    // 可选，指示灯切换事件，默认 "click"
+    indicatorActive : "active",		    // 可选，指示灯当前状态的class类，默认 "active"
+    timer : setIntervalID	                // 自动，清除可以停止播放
     
 },function(currentIndex,oldIndex){
-    //do something...        //第一个参数为当前索引值，第二个参数为是上一个索引值
+    // do something...        //第一个参数为当前索引值，第二个参数为是上一个索引值
 });
 </pre>
 
