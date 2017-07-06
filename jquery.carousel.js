@@ -1,4 +1,4 @@
-/* jquery.carousel.js   2017-6-15  */
+/* jquery.carousel.js   2017-7-6  */
 
 ;(function($){
 	$.fn.extend({
@@ -6,44 +6,50 @@
 			var _this = this,
 				obj = obj || {},
 				type = obj.type || "x",
-				limitoFlag = true,
+				limitFlag = true,
 				attr = "left",
-				hide = this.width(),
+				dis = this.width(),
 				show = 0,
 				cur = 0,
 				old = 0,
 				len = 0,
 				items = {},
 				inds = {},
+				temp = {},
 				speed = obj.speed || 500,
 				interval = obj.interval || 3500,
+				easing = obj.easing || "swing",
 				mouseoverStop = obj.mouseoverStop === false ? false : true,
 				autoPlay = obj.autoPlay === false ? false : true,
-				indicator = obj.indicator || {};
-				indicator.event = indicator.event || "click";
-				indicator.activeClass = indicator.activeClass || "active";
+				animate = obj.animate === false ? "css" : "animate",
+				indicatorEvent = obj.indicatorEvent || "click";
+				indicatorActive = obj.indicatorActive || "active";
+				obj.timer = null;
 
-			if(type == "y"){
+			if(type === "y"){
 				attr = "top";
-				hide = this.height();
-			}else if(type == "o"){
-				attr = "opacity";
-				hide = 0;
-				show = 1;
+				dis = this.height();
 			};
 
 			function refresh(){
-				items = _this.children(".carousel-box").children();
-				inds = _this.children(".carousel-indicators").children();
-				len = items.size();
+				items = _this.children("ul").children();
+				inds = _this.children("ol").children();
+				len = items.length;
 			};
 			refresh();
 
-			items.css(attr,-hide).first().css(attr,show);
-			items.last().css(attr,hide);
-			inds.first().addClass(indicator.activeClass);
+			if(type === "o"){
+				items.hide().first().show();
+			}else{
+				items.css(attr,-dis).first().css(attr,show);
+				items.last().css(attr,dis);	
+			};
+
+			inds.first().addClass(indicatorActive);
 			if(fn)(fn(0,len-1));
+
 			function run(d,dir,c,o){
+
 				refresh();
 
 				if(dir){
@@ -58,56 +64,59 @@
 					cur = c;
 					old = o;
 				};
-				
-				var tempObj = {};
-				tempObj[attr] = show;
-				items.css(attr,d).eq(old).css(attr,show);
-				items.eq(cur).animate(tempObj,speed);
-				tempObj[attr] = -d;
-				items.eq(old).animate(tempObj,speed);
-				inds.eq(old).removeClass(indicator.activeClass);
-				inds.eq(cur).addClass(indicator.activeClass);
+
+				if(type === "o"){
+					items.stop().fadeOut(speed).eq(cur).stop().fadeIn(speed);
+				}else{
+					temp[attr] = show;
+					items.eq(cur).css(attr,d)[animate](temp,speed,easing);
+					temp[attr] = -d;
+					items.eq(old).css(attr,show)[animate](temp,speed,easing);	
+				};
+
+				inds.eq(old).removeClass(indicatorActive);
+				inds.eq(cur).addClass(indicatorActive);
+
 				if(fn){fn(cur,old)};
 			};
 
 			function autoGo(){
-				run(hide,true);
+				run(dis,true);
 			};
 
 			if(autoPlay){
 				obj.timer = setInterval(autoGo,interval);
 			};
 
-			var bindTag = inds.get(0).tagName.toLowerCase();
-			this.children(".carousel-indicators").on(indicator.event,bindTag,function() {
-				var i = $(this).index();
-				if(i > cur){
-					run(hide,true,i,cur);
-					cur = i;
-				}else if(i < cur){
-					run(-hide,false,i,cur);
-					cur = i;
-				};
-			});
-
-			function active(dis,bool){
-				if(limitoFlag){
-					run(dis,bool);
-					limitoFlag = false;
-					setTimeout(function() {
-						limitoFlag = true;
-					},speed);
+			function limit(fn){
+				if(limitFlag){
+					fn();
+					if(obj.animate === false)return;
+					limitFlag = false;
+					setTimeout(function(){limitFlag = true}, speed);
 				};
 			};
 
+			this.children("ol").on(indicatorEvent,"li",function(){
+				var i = $(this).index();
+				limit(function(){
+					if(i > cur){
+						run(dis,true,i,cur);
+						cur = i;
+					}else if(i < cur){
+						run(-dis,false,i,cur);
+						cur = i;
+					};
+				});
+			});
+
 			this.children(".prev").click(function(){
-				active(-hide);
+				limit(function(){run(-dis)});
 			});
 
 			this.children(".next").click(function(){
-				active(hide,true);
+				limit(function(){run(dis,true)});
 			});
-
 
 			if(mouseoverStop){
 				this.mouseenter(function(){
@@ -118,9 +127,15 @@
 					};
 				});	
 			};
-			
+
+			$(window).resize(function(){
+				if(type === "x"){
+					dis = _this.width();
+				}else if(type === "y"){
+					dis = _this.height();
+				};
+			});
 		}
 
 	});
-	
 })(jQuery);
