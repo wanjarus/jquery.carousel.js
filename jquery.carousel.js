@@ -135,6 +135,8 @@
 					dis = _this.height();
 				};
 			});
+			
+			return this;
 		}
 
 	});
