@@ -4,11 +4,6 @@
 	$.fn.extend({
 		"carousel" : function(obj,fn){
 			var _this = this,
-				obj = obj || {},
-				type = obj.type || "x",
-				limitFlag = true,
-				attr = "left",
-				dis = this.width(),
 				show = 0,
 				cur = 0,
 				old = 0,
@@ -16,11 +11,17 @@
 				items = {},
 				inds = {},
 				temp = {},
+				attr = "left",
+				limitFlag = true,
+				dis = this.width(),
+				obj = obj || {},
+				type = obj.type || "x",
 				speed = obj.speed || 500,
 				interval = obj.interval || 3500,
 				easing = obj.easing || "swing",
 				mouseoverStop = obj.mouseoverStop === false ? false : true,
 				autoPlay = obj.autoPlay === false ? false : true,
+				noLoop = obj.loop === false ? true : false,
 				animate = obj.animate === false ? "css" : "animate",
 				indicatorEvent = obj.indicatorEvent || "click";
 				indicatorActive = obj.indicatorActive || "active";
@@ -53,9 +54,11 @@
 				refresh();
 
 				if(dir){
+					if(noLoop && cur === len-1)return;
 					cur = cur + 1 == len ? 0 : cur + 1;
 					old = cur -1 < 0 ? len - 1 : cur - 1;
 				}else{
+					if(noLoop && cur === 0)return;
 					cur = cur - 1 < 0 ? len - 1 : cur - 1;
 					old = cur + 1 >= len ? 0 : cur + 1;
 				};
@@ -135,9 +138,9 @@
 					dis = _this.height();
 				};
 			});
-			
 			return this;
 		}
 
 	});
 })(jQuery);
+
