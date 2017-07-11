@@ -18,6 +18,7 @@ $(".carousel").carousel({
     speed : 500,                            // 可选，设置过渡时间，默认 500ms
     autoPlay : true,                        // 可选，是否自动播放，默认 true
     easing : "swing",                       // 可选，缓动函数，默认 "swing"
+    loop : true,                            // 可选，是否循环，默认 true
     mouseoverStop : false,                  // 可选，鼠标悬浮时是否暂停，默认 false
     animate : true,                         // 可选，是否有动画效果，默认 true
     indicatorEvent : "click",		    // 可选，指示灯切换事件，默认 "click"
